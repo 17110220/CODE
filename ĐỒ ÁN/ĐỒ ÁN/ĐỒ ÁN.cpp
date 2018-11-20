@@ -1,4 +1,5 @@
-﻿#include "iostream"
+﻿#include "windows.h"
+#include "iostream"
 #include <sys/timeb.h>
 #include <time.h>
 using namespace std;
@@ -16,6 +17,7 @@ node* Merge(node* h1, node* h2);
 // Hàm thực hiện Hợp nhất Sắp xếp trên danh sách được liên kết bằng cách sử dụng tham chiếu.
 void MergeSort(node **head);
 int Random(int n);
+
 int main()
 {
 	long int n, i, num;
@@ -23,17 +25,18 @@ int main()
 	struct node *tail = new node;
 	head = NULL;
 	tail = NULL;
+	HANDLE Bienmau;
+	Bienmau = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(Bienmau, 1);
 	cout << "\nNhap vao so phan tu de sap xep: ";
 	cin >> n;
+	int max = INT_MAX;
+	SetConsoleTextAttribute(Bienmau, 2);
 	clock_t start = clock();// ham bất đầu đếm thời gian thực hiện chương trình
-
-							// Tạo danh sách
 	for (i = 0; i < n; i++)
 	{
 		num = Random(n + 10);
-
 		tail = AddToList(tail, num);
-
 		if (head == NULL)
 			head = tail;
 	}
@@ -43,14 +46,15 @@ int main()
 	cout << "\nDanh sach sau khi sap xep " << endl;
 	while (head != NULL)
 	{
-		cout << "     " << head->data << endl;
+		cout << "     " << head->data << " ";
+		printf_s("%p\n", head->next);
 		head = head->next;
 	}
 	clock_t finish = clock();// ham đếm thời gian kết thúc
+	SetConsoleTextAttribute(Bienmau, 3);
 	double duration = (double)(finish - start) / CLOCKS_PER_SEC;
 	cout << "\n\n\n";
 	printf("Thoi gian thuc thi: %.2lf", duration);
-	//system("pause");
 	return 0;
 }
 int Random(int n)
@@ -176,3 +180,4 @@ void MergeSort(node **head)
 	// Hợp nhất hai phần của danh sách thành một phần được sắp xếp.
 	*head = Merge(first, second);
 }
+
