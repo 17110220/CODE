@@ -43,8 +43,7 @@ int main()
 	cout << "\nDanh sach sau khi sap xep " << endl;
 	while (head != NULL)
 	{
-		cout << "     " << head->data << "    ";
-		cout << head->next << endl;
+		cout << "     " << head->data << endl;
 		head = head->next;
 	}
 	clock_t finish = clock();// ham đếm thời gian kết thúc
