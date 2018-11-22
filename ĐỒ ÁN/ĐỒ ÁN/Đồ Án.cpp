@@ -35,7 +35,9 @@ int main()
 	clock_t start = clock();// ham bất đầu đếm thời gian thực hiện chương trình
 	for (i = 0; i < n; i++)
 	{
-		num = Random(n + 10);
+		/*num = Random(n + 10);*/
+		cout << "Nhap phan tu: ";
+		cin >> num;
 		tail = AddToList(tail, num);
 		if (head == NULL)
 			head = tail;
@@ -57,10 +59,10 @@ int main()
 	printf("Thoi gian thuc thi: %.2lf", duration);
 	return 0;
 }
-int Random(int n)
-{
-	return rand() % (n);
-}
+//int Random(int n)
+//{
+//	return rand() % (n);
+//}
 //Trả về temp làm nút mới
 node* NewNode(int d)
 {
@@ -146,7 +148,7 @@ node* Merge(node* h1, node* h2)
 }
 
 // Một hàm thực hiện Hợp nhất Sắp xếp trên danh sách được liên kết bằng cách sử dụng tham chiếu.
-void MergeSort(node **head)
+void MergeSort(node **head)  // trỏ đa cấp
 {
 	node *first = new node;
 	node *second = new node;
