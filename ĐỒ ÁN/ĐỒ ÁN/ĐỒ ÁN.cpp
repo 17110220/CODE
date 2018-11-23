@@ -11,9 +11,12 @@ struct node
 };
 //Trả về temp làm nút mới
 node* NewNode(int d);
+
 // Hàm thêm dữ liệu đã cho vào cuối danh sách liên kết.
 node* AddToList(node *tail, int data);
+
 node* Merge(node* h1, node* h2);
+
 // Hàm thực hiện Hợp nhất Sắp xếp trên danh sách được liên kết bằng cách sử dụng tham chiếu.
 void MergeSort(node **head);
 int Random(int n);
