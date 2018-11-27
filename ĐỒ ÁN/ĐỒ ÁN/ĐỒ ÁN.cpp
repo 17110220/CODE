@@ -11,19 +11,16 @@ struct node
 };
 //Trả về temp làm nút mới
 node* NewNode(int d);
-
 // Hàm thêm dữ liệu đã cho vào cuối danh sách liên kết.
 node* AddToList(node *tail, int data);
-
 node* Merge(node* h1, node* h2);
-
 // Hàm thực hiện Hợp nhất Sắp xếp trên danh sách được liên kết bằng cách sử dụng tham chiếu.
 void MergeSort(node **head);
-int Random(int n);
+long Random(int a, int b);
 
 int main()
 {
-	long int n, i, num;
+	long int n, i, num,a,b;
 	struct node *head = new node;
 	struct node *tail = new node;
 	head = NULL;
@@ -33,14 +30,17 @@ int main()
 	SetConsoleTextAttribute(Bienmau, 1);
 	cout << "\nNhap vao so phan tu de sap xep: ";
 	cin >> n;
-	int max = INT_MAX;
 	SetConsoleTextAttribute(Bienmau, 2);
+	cout << "nhap khoang a --> b de tao node ngau nhien\n";
+	cout << "nhap a = ";
+	cin >> a;
+	cout << "nhap b = ";
+	cin >> b;
+	SetConsoleTextAttribute(Bienmau, 3);
 	clock_t start = clock();// ham bất đầu đếm thời gian thực hiện chương trình
 	for (i = 0; i < n; i++)
 	{
-		/*num = Random(n + 10);*/
-		cout << "Nhap phan tu: ";
-		cin >> num;
+		num = Random(a,b);
 		tail = AddToList(tail, num);
 		if (head == NULL)
 			head = tail;
@@ -56,16 +56,16 @@ int main()
 		head = head->next;
 	}
 	clock_t finish = clock();// ham đếm thời gian kết thúc
-	SetConsoleTextAttribute(Bienmau, 3);
+	SetConsoleTextAttribute(Bienmau, 4);
 	double duration = (double)(finish - start) / CLOCKS_PER_SEC;
 	cout << "\n\n\n";
 	printf("Thoi gian thuc thi: %.2lf", duration);
 	return 0;
 }
-//int Random(int n)
-//{
-//	return rand() % (n);
-//}
+long  Random(int a, int b)
+{
+	return a + rand() % (b - a + 1);
+}
 //Trả về temp làm nút mới
 node* NewNode(int d)
 {
@@ -185,4 +185,3 @@ void MergeSort(node **head)  // trỏ đa cấp
 	// Hợp nhất hai phần của danh sách thành một phần được sắp xếp.
 	*head = Merge(first, second);
 }
-
