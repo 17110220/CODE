@@ -1,2 +1,4 @@
-﻿  Đồ Án.cpp
-  ĐỒ ÁN.vcxproj -> C:\Users\vanta\OneDrive\Documents\GitHub\CODE\ĐỒ ÁN\Debug\ĐỒ ÁN.exe
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Platforms\Win32\PlatformToolsets\v140_xp\Toolset.targets(36,5): warning MSB8003: Could not find WindowsSdkDir_71A variable from the registry.  TargetFrameworkVersion or PlatformToolset may be set to an invalid version number.
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(366,5): warning MSB8003: Could not find WindowsSDKDir variable from the registry.  TargetFrameworkVersion or PlatformToolset may be set to an invalid version number.
+  Đồ Án.cpp
+c:\users\vo tan nguyen\documents\github\code\code\đồ án\đồ án\đồ án.cpp(1): fatal error C1083: Cannot open include file: 'windows.h': No such file or directory
